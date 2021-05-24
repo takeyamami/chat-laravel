@@ -18,15 +18,18 @@ class ChatListController extends Controller
         $talk = [
             [
             'userID' => 1,
-            'msg' => 'こんにちは'
+            'msg' => 'こんにちは',
+            'type' => 1,
             ],
             [
             'userID' => 2,
-            'msg' => '初めまして、こんにちは'
+            'msg' => '初めまして、こんにちは',
+            'type' => 2,
             ],
             [
             'userID' => 1,
-            'msg' => 'いい天気ですね'
+            'msg' => 'いい天気ですね',
+            'type' => 1,
             ],
         ];
         $data = ['userID'=> $userID, 'talk' => $talk];

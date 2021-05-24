@@ -12,15 +12,7 @@
     <li>hogehoge</li>
 @endsection
 @section('content')
-    @foreach ($talk as $val)
-
-        @php
-        $talkPosition = $userID == $val['userID'] ? 'talk-left' : 'talk-right';
-        @endphp
-
-        @include('components.talk', ['talkPosition' => $talkPosition, 'msg' => $val['msg']])
-
-    @endforeach
+    @each ('components.talk', $talk, 'val')
 
     @include('components.message_form')
 
