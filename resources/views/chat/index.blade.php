@@ -14,23 +14,14 @@
 @section('content')
     @foreach ($talk as $val)
 
-    @php
-    $talkPosition = $userID == $val['userID'] ? 'talk-left' : 'talk-right';
-    @endphp
+        @php
+        $talkPosition = $userID == $val['userID'] ? 'talk-left' : 'talk-right';
+        @endphp
 
-    @component('components.talk')
-        @slot('talkPosition')
-        {{$talkPosition}}
-        @endslot
-        
-        @slot('msg')
-        {{$val['msg']}}
-        @endslot
-    @endcomponent
+        @include('components.talk', ['talkPosition' => $talkPosition, 'msg' => $val['msg']])
 
     @endforeach
 
-    @component('components.message_form')
-    @endcomponent
+    @include('components.message_form')
 
 @endsection
