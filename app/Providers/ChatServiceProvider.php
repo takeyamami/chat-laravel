@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class ChatServiceProvider extends ServiceProvider
@@ -24,5 +25,8 @@ class ChatServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        View::composer('chat.index', function($view){
+            $view->with('view_message', 'composer message!');
+        });
     }
 }

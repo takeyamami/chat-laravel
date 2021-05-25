@@ -10,6 +10,7 @@
     <li>hogehoge</li>
     <li>hogehoge</li>
     <li>hogehoge</li>
+    <li>{{$view_message}}</li>
 @endsection
 @section('content')
     @each ('components.talk', $talk, 'val')

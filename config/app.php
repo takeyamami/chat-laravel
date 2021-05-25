@@ -175,6 +175,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Customize Application Service Providers...
+         */
+        App\Providers\ChatServiceProvider::class,
+
     ],
 
     /*
