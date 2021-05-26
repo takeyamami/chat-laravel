@@ -16,6 +16,7 @@ class ChatMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        // 仮データの作成
         $userID = 1;
         $talk = [
             [
@@ -35,9 +36,18 @@ class ChatMiddleware
             ],
         ];
         $data = ['userID'=> $userID, 'talk' => $talk];
-
         $request->merge(['data' => $data]);
 
-        return $next($request);
+        $response = $next($request);
+        $content = $response->content();
+
+        // <middleware>タグに囲まれた文字列を置換
+        $pattern = '/<middleware>(.*)<\/middleware>/i';
+        $replace = '<a href="https://$1">$1</a>';
+        $content = preg_replace($pattern, $replace, $content);
+
+        $response->setContent($content);
+
+        return $response;
     }
 }
