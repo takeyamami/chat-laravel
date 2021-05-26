@@ -13,7 +13,7 @@
     <li>{{$view_message}}</li>
 @endsection
 @section('content')
-    @each ('components.talk', $talk, 'val')
+    @each ('components.talk', $data['talk'], 'val')
 
     @include('components.message_form')
 

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\ChatMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/chat/{id?}', 'ChatListController');
+Route::get('/chat/{id?}', 'ChatListController')->middleware(ChatMiddleware::class);

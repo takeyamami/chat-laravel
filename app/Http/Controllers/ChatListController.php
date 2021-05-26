@@ -13,27 +13,6 @@ class ChatListController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function __invoke(Request $request) {
-
-        $userID = 1;
-        $talk = [
-            [
-            'userID' => 1,
-            'msg' => 'こんにちは',
-            'type' => 1,
-            ],
-            [
-            'userID' => 2,
-            'msg' => '初めまして、こんにちは',
-            'type' => 2,
-            ],
-            [
-            'userID' => 1,
-            'msg' => 'いい天気ですね',
-            'type' => 1,
-            ],
-        ];
-        $data = ['userID'=> $userID, 'talk' => $talk];
-
-        return view('chat.index', $data);
+        return view('chat.index', ['data' => $request->data]);
     }
 }
