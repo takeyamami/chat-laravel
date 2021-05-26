@@ -25,8 +25,6 @@ class ChatServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        View::composer('chat.index', function($view){
-            $view->with('view_message', 'composer message!');
-        });
+        View::composer('chat.index', '\App\Http\Composers\ChatComposer');
     }
 }
