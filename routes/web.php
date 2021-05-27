@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\ChatMiddleware;
+use App\Http\Middleware\LoginMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +16,4 @@ use App\Http\Middleware\ChatMiddleware;
 */
 
 Route::get('/chat/{id?}', 'ChatListController')->middleware(ChatMiddleware::class);
+Route::get('/login/', 'LoginController')->middleware(LoginMiddleware::class);
