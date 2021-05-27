@@ -1,6 +1,15 @@
 @extends('layouts.chatapp')
+@section('header')
+    @component('components.header')
+        @slot('title', 'chat')
+        @slot('css', 'chat.css')
+    @endcomponent
 
-@section('title', 'chat')
+@endsection
+
+
+@section('talkTitle', 'popipopiさん')
+
 @section('list')
     @parent
     <li>hogehoge</li>
