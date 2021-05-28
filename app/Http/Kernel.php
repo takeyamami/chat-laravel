@@ -22,7 +22,6 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         // customize
-        \App\Http\Middleware\ChatMiddleware::class,
         \App\Http\Middleware\LoginMiddleware::class,
     ];
 
@@ -45,6 +44,10 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ],
+
+        'chat' => [
+            \App\Http\Middleware\ChatMiddleware::class,
         ],
     ];
 
