@@ -17,3 +17,4 @@ use App\Http\Middleware\LoginMiddleware;
 
 Route::get('/chat/{id?}', 'ChatListController')->middleware('chat');
 Route::get('/login/', 'LoginController');
+Route::post('/login/action', 'LoginController@action');

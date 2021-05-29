@@ -9,6 +9,12 @@
  #contents h1 {
     font-size: 30px;
  }
+ #contents .errorTitle{
+   padding-top: 15px;
+ }
+ #contents .error{
+    padding: 10 0 20 0;
+ }
  #contents .data {
     width: 400px; 
     padding-top: 15px;

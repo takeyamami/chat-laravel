@@ -15,4 +15,17 @@ class LoginController extends Controller
     public function __invoke(Request $request) {
         return view('login.index', ['data' => $request->data]);
     }
+
+    public function action(Request $request) {
+        $_rule = [
+            'email' => 'required|email',
+            'password' => 'required|digits_between:8,20'
+        ];
+
+        if(! $this->validate($request, $_rule)) {
+            view('login.index', ['data' => $request->data]);
+        };
+
+        return redirect('/chat/');
+    }
 }
