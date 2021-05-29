@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\LoginRequest;
 
 class LoginController extends Controller
 {
@@ -16,16 +17,8 @@ class LoginController extends Controller
         return view('login.index', ['data' => $request->data]);
     }
 
-    public function action(Request $request) {
-        $_rule = [
-            'email' => 'required|email',
-            'password' => 'required|digits_between:8,20'
-        ];
+    public function action(LoginRequest $request) {
 
-        if(! $this->validate($request, $_rule)) {
-            view('login.index', ['data' => $request->data]);
-        };
-
-        return redirect('/chat/');
+        return view('login.index', ['data' => $request->data]);
     }
 }
