@@ -21,13 +21,14 @@ class LoginController extends Controller
     public function action(Request $request) 
     {
         $rules = [
-            'email' => 'required|email',
+            'email' => 'required|email:dns|myemail',
             'password' => 'required|digits_between:8,20'
         ];
 
         $messages = [
             'email.required' => 'メールアドレスは必須です。',
             'email.email' => 'メールアドレスの形式が正しくありません。',
+            'email.myemail' => '不適切な文字列が含まれています。',
             'password.required' => 'パスワードは必須です。',
             'password.digits_between' => 'パスワードは8文字以上、20文字以下で入力してください。'
         ];

@@ -179,6 +179,7 @@ return [
          * Customize Application Service Providers...
          */
         App\Providers\ChatServiceProvider::class,
+        App\Providers\LoginServiceProvider::class,
 
     ],
 
