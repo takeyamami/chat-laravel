@@ -16,6 +16,13 @@ class ChatMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        $loginid = $request->cookie('TKCHTID');
+        $loginpw = $request->cookie('TKCHTPW');
+
+        if ($loginid == "" || $loginpw == "") {
+            return redirect('/login');
+        }
+
         // 仮データの作成
         $userID = 1;
         $talk = [

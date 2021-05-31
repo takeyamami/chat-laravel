@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\ChatMiddleware;
-use App\Http\Middleware\LoginMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +13,7 @@ use App\Http\Middleware\LoginMiddleware;
 |
 */
 
+Route::get('/', 'ChatListController')->middleware('chat');
 Route::get('/chat/{id?}', 'ChatListController')->middleware('chat');
 Route::get('/login/', 'LoginController');
-Route::post('/login/action', 'LoginController@action');
+Route::post('/login/action', 'LoginController@action')->middleware('login');

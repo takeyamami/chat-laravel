@@ -16,6 +16,10 @@ class LoginMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        $response = $next($request);
+        $response->cookie('TKCHTID', hash('sha256', $request->email));
+        $response->cookie('TKCHTPW', hash('sha256', $request->password));
+
+        return $response;
     }
 }

@@ -21,7 +21,7 @@ class LoginController extends Controller
     public function action(Request $request) 
     {
         $rules = [
-            'email' => 'required|email:dns|myemail',
+            'email' => 'required|email|myemail',
             'password' => 'required|digits_between:8,20'
         ];
 
