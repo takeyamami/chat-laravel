@@ -41,6 +41,6 @@ class LoginController extends Controller
             ->withInput();
         }
 
-        return redirect('/chat');
+        return redirect()->route('/chat/');
     }
 }

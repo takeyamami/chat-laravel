@@ -20,7 +20,7 @@ class ChatMiddleware
         $loginpw = $request->cookie('TKCHTPW');
 
         if ($loginid == "" || $loginpw == "") {
-            return redirect('/login');
+            return redirect()->route('/login/');
         }
 
         // 仮データの作成
