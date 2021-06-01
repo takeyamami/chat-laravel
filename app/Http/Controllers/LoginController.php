@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Validator;
 
 class LoginController extends Controller
@@ -41,6 +42,13 @@ class LoginController extends Controller
             ->withInput();
         }
 
-        return redirect()->route('/chat/');
+        $param = ['id' => hash('sha256', $request->email), 'pw' => hash('sha256', $request->password)];
+        $items = DB::select('SELECT * FROM UserData WHERE loginid=":id" AND loginpw=":pw"', $param);
+
+        if(count($items) == 0) {
+            return view('login.index', ['msg' => '未登録のユーザーです。']);
+        }
+
+        return redirect('/chat/');
     }
 }
