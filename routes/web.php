@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'ChatListController')->middleware('chat');
-Route::get('/chat/{id?}', 'ChatListController')->middleware('chat');
+Route::get('/chat/{rid?}', 'ChatListController')->middleware('chat');
+Route::get('/chat/{rid?}', 'ChatListController@post')->middleware('post')->middleware('chat');
 Route::get('/login/', 'LoginController');
 Route::post('/login/action', 'LoginController@action')->middleware('login');

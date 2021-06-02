@@ -23,7 +23,7 @@ class LoginController extends Controller
     {
         $rules = [
             'email' => 'required|email|myemail',
-            'password' => 'required|digits_between:8,20'
+            'password' => 'required|digits_between:6,20'
         ];
 
         $messages = [
@@ -46,6 +46,7 @@ class LoginController extends Controller
             'id' => hash('sha256', $request->email),
             'pw' => hash('sha256', $request->password),
         ];
+
         $items = DB::select('SELECT * FROM UserData WHERE loginid=:id AND loginpw=:pw', $param);
 
         if(count($items) == 0) {

@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ChatMiddleware
 {
@@ -23,26 +24,40 @@ class ChatMiddleware
             return redirect('/login');
         }
 
-        // 仮データの作成
-        $userID = 1;
-        $talk = [
-            [
-            'userID' => 1,
-            'msg' => 'こんにちは',
-            'type' => 1,
-            ],
-            [
-            'userID' => 2,
-            'msg' => '初めまして、こんにちは',
-            'type' => 2,
-            ],
-            [
-            'userID' => 1,
-            'msg' => 'いい天気ですね',
-            'type' => 1,
-            ],
+        $param = [
+            'id' => $loginid,
+            'pw' => $loginpw,
         ];
-        $data = ['userID'=> $userID, 'talk' => $talk];
+
+        $users = DB::select('SELECT * FROM UserData WHERE loginid=:id AND loginpw=:pw', $param);
+        $rooms = DB::select('SELECT r.rid, r.name FROM RoomData r INNER JOIN RoomMemberData rm ON r.rid = rm.rid WHERE rm.uid=:uid' , ['uid' => $users[0]->uid]);
+        $selectRoom = [];
+        $talk = [];
+        if (isset($request->rid)) {
+            $selectRoom = DB::select('SELECT * FROM RoomData WHERE rid=:rid' , ['rid' => $request->rid]);
+            $talk = DB::select('SELECT * FROM TalkData WHERE rid=:rid' , ['rid' => $request->rid]);
+        }
+        
+        // 仮データの作成
+        // $userID = $items[0]->uid;
+        // $talk = [
+        //     [
+        //     'userID' => 1,
+        //     'msg' => 'こんにちは',
+        //     'type' => 1,
+        //     ],
+        //     [
+        //     'userID' => 2,
+        //     'msg' => '初めまして、こんにちは',
+        //     'type' => 2,
+        //     ],
+        //     [
+        //     'userID' => 1,
+        //     'msg' => 'いい天気ですね',
+        //     'type' => 1,
+        //     ],
+        // ];
+        $data = ['user'=> $users[0], 'talk' => $talk, 'rooms' => $rooms, 'selectRoom' => $selectRoom[0]];
         $request->merge(['data' => $data]);
 
         $response = $next($request);
