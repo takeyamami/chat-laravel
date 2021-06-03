@@ -35,7 +35,7 @@ class ChatMiddleware
         $talk = [];
         if (isset($request->rid)) {
             $selectRoom = DB::select('SELECT * FROM RoomData WHERE rid=:rid' , ['rid' => $request->rid])[0];
-            $talk = DB::select('SELECT *, (CASE WHEN uid = :uid THEN 1 ELSE 2 END) type FROM TalkData WHERE rid=:rid' , ['rid' => $request->rid, 'uid' => $users[0]->uid]);
+            $talk = DB::select('SELECT t.*, (CASE WHEN t.uid = :uid THEN 1 ELSE 2 END) type, u.name username FROM TalkData t INNER JOIN UserData u ON t.uid = u.uid WHERE rid=:rid' , ['rid' => $request->rid, 'uid' => $users[0]->uid]);
         }
         // var_dump($talk); exit;
         // 仮データの作成
