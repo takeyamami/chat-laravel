@@ -34,7 +34,7 @@ class ChatMiddleware
         $selectRoom = [];
         $talk = [];
         if (isset($request->rid)) {
-            $selectRoom = DB::select('SELECT * FROM RoomData WHERE rid=:rid' , ['rid' => $request->rid]);
+            $selectRoom = DB::select('SELECT * FROM RoomData WHERE rid=:rid' , ['rid' => $request->rid])[0];
             $talk = DB::select('SELECT * FROM TalkData WHERE rid=:rid' , ['rid' => $request->rid]);
         }
         
@@ -57,7 +57,7 @@ class ChatMiddleware
         //     'type' => 1,
         //     ],
         // ];
-        $data = ['user'=> $users[0], 'talk' => $talk, 'rooms' => $rooms, 'selectRoom' => $selectRoom[0]];
+        $data = ['user'=> $users[0], 'talk' => $talk, 'rooms' => $rooms, 'selectRoom' => $selectRoom];
         $request->merge(['data' => $data]);
 
         $response = $next($request);
