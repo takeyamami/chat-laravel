@@ -1,6 +1,6 @@
 
 @php
-$talkPosition = $val->type == 1 ? 'talk-right' : 'talk-left';
+$talkPosition = $val->type == 1 ? 'talk-me' : 'talk-other';
 @endphp
 
 <div class="talk">

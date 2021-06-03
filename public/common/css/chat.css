@@ -33,32 +33,16 @@
  #contents .talk {
      padding: 10 0 10 0;
  }
- #contents .talk .talk-left {
+ #contents .talk .talk-me {
      position: relative;
      margin-left: 100px;
      margin-right: 100px;
      padding: 1.2em;
-     border: 3px solid #eee;
-     background-color: #fff;
+     border: 3px solid #c1deff;
+     background-color: #c1deff;
      border-radius: 5px;
  }
- #contents .talk .talk-left:before {
-     position: absolute;
-     content: '';
-     border: 10px solid transparent;
-     border-left: 10px solid #eee;
-     top: 21px;
-     right: -23px;
- }
- #contents .talk .talk-left:after {
-     position: absolute;
-     content: '';
-     border: 10px solid transparent;
-     border-left: 10px solid #fff;
-     top: 21px;
-     right: -19px;
- }
- #contents .talk .talk-right {
+ #contents .talk .talk-other {
      color: #444;
      position: relative;
      margin-left: 100px;
@@ -67,22 +51,6 @@
      border: 3px solid #eee;
      background-color: #fff;
      border-radius: 5px;
- }
- #contents .talk .talk-right:before {
-     position: absolute;
-     content: '';
-     border: 10px solid transparent;
-     border-right: 10px solid #eee;
-     top: 21px;
-     left: -23px;
- }
- #contents .talk .talk-right:after {
-     position: absolute;
-     content: '';
-     border: 10px solid transparent;
-     border-right: 10px solid #fff;
-     top: 21px;
-     left: -19px;
  }
  #contents #form  {
      position: fixed;
