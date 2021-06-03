@@ -4,6 +4,7 @@
  }
  #wrapper {
     width: 70%;
+    min-height:120%;
     margin: 0 auto;/*ページ幅 70％ でセンタリングしています。*/
  }
  #main {
@@ -12,7 +13,8 @@
  }
  #menu {
      float: left;
-     min-height:100%;
+     position: fixed;
+     min-height:120%;
      width: 150px;  /* floatの width 指定は必須です。*/
      padding-top: 60px;
      border-right: 0.1em solid gray;
