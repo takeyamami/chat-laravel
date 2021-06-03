@@ -17,6 +17,29 @@ class PostMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        $loginid = $request->cookie('TKCHTID');
+        $loginpw = $request->cookie('TKCHTPW');
+
+        if ($loginid == "" || $loginpw == "") {
+            return redirect('/login');
+        }
+
+        $param = [
+            'id' => $loginid,
+            'pw' => $loginpw,
+        ];
+
+        $users = DB::select('SELECT * FROM UserData WHERE loginid=:id AND loginpw=:pw', $param);
+
+        $talkParam = [
+            "rid" => $request->rid, 
+            "uid" => $users[0]->uid, 
+            "message" => $request->message, 
+            "regist_dt" => date("Y/m/d H:i:s"),
+        ];
+        // トークデータを登録
+        DB::insert("INSERT INTO TalkData (rid, uid, message, regist_dt) VALUES (:rid, :uid, :message, :regist_dt)", $talkParam);
+
         return $next($request);
     }
 }

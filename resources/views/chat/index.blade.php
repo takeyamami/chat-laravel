@@ -26,8 +26,12 @@
     <li><middleware>google.com</middleware>へのリンク</li>-->
 @endsection
 @section('content')
-    @each ('components.talk', $data['talk'], 'val')
-
-    @include('components.message_form')
-
+    @if (isset($data['selectRoom']->name))
+        @each ('components.talk', $data['talk'], 'val')
+        @component('components.message_form')
+            @slot('rid', $data['selectRoom']->rid)
+        @endcomponent
+    @else
+        <p>ルームを選択してください</p>
+    @endif
 @endsection
