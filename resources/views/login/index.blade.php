@@ -14,6 +14,6 @@
 @if (count($errors) > 0)
 <p class="errorTitle">入力内容に問題があります。</p>
 @endif
-    @include('components.login-component')
+    @include('components.login_component')
 
 @endsection
