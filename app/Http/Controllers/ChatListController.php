@@ -23,6 +23,6 @@ class ChatListController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function post(Request $request) {
-        return view('chat.index', ['data' => $request->data]);
+        return redirect('/chat/' . $request->rid);
     }
 }
