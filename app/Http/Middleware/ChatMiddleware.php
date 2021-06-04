@@ -20,6 +20,7 @@ class ChatMiddleware
         $loginid = $request->cookie('TKCHTID');
         $loginpw = $request->cookie('TKCHTPW');
 
+        // ログイン情報がない
         if ($loginid == "" || $loginpw == "") {
             return redirect('/login');
         }
@@ -30,6 +31,12 @@ class ChatMiddleware
         ];
 
         $users = DB::select('SELECT * FROM UserData WHERE loginid=:id AND loginpw=:pw', $param);
+
+        // 該当するユーザーが存在しない
+        if(isset($users[0])){
+            return redirect('/login');
+        }
+
         $rooms = DB::select('SELECT r.rid, r.name FROM RoomData r INNER JOIN RoomMemberData rm ON r.rid = rm.rid WHERE rm.uid=:uid' , ['uid' => $users[0]->uid]);
         $selectRoom = [];
         $talk = [];
@@ -37,26 +44,6 @@ class ChatMiddleware
             $selectRoom = DB::select('SELECT * FROM RoomData WHERE rid=:rid' , ['rid' => $request->rid])[0];
             $talk = DB::select('SELECT t.*, (CASE WHEN t.uid = :uid THEN 1 ELSE 2 END) type, u.name username FROM TalkData t INNER JOIN UserData u ON t.uid = u.uid WHERE rid=:rid' , ['rid' => $request->rid, 'uid' => $users[0]->uid]);
         }
-        // var_dump($talk); exit;
-        // 仮データの作成
-        // $userID = $items[0]->uid;
-        // $talk = [
-        //     [
-        //     'userID' => 1,
-        //     'msg' => 'こんにちは',
-        //     'type' => 1,
-        //     ],
-        //     [
-        //     'userID' => 2,
-        //     'msg' => '初めまして、こんにちは',
-        //     'type' => 2,
-        //     ],
-        //     [
-        //     'userID' => 1,
-        //     'msg' => 'いい天気ですね',
-        //     'type' => 1,
-        //     ],
-        // ];
         $data = ['user'=> $users[0], 'talk' => $talk, 'rooms' => $rooms, 'selectRoom' => $selectRoom];
         $request->merge(['data' => $data]);
 
