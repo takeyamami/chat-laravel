@@ -55,6 +55,10 @@ class Kernel extends HttpKernel
         'post' => [
             \App\Http\Middleware\PostMiddleware::class,
         ],
+
+        'logout' => [
+            \App\Http\Middleware\LogoutMiddleware::class,
+        ],
     ];
 
     /**

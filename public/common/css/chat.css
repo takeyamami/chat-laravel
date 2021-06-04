@@ -70,6 +70,7 @@
     overflow: hidden;
  }
  #menu .btnArea .lineBtn {
+    text-decoration: none;
     border: 1px solid #3392ff;
     color: #3392ff;
     background-color: #ffffff;

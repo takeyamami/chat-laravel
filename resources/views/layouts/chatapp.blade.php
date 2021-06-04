@@ -6,7 +6,7 @@
         <div id="menu">
         <ul class="sidebar-index">
             <li class="text userInfo"><span class="name">@yield('username')</span>さん</li>
-            <li class="btnArea"><button class="btn lineBtn">ログアウト</button></li>
+            <li class="btnArea"><a href="/logout" class="btn lineBtn">ログアウト</a></li>
             <li>
                 <ul class="roomList">
                 @show
