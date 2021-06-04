@@ -8,25 +8,19 @@
 @endsection
 
 @section('talkTitle', isset($data['selectRoom']->name) ? $data['selectRoom']->name : '---')
-
+@section('username', $data['user']->name)
 @section('list')
     @parent
     @foreach($data['rooms'] as $val)
-    <li><a href="/chat/{{$val->rid}}">{{$val->name}}</a></li>
+    @if (isset($data['selectRoom']->rid) && $data['selectRoom']->rid == $val->rid)
+    <li class="text selected"><a href="/chat/{{$val->rid}}">{{$val->name}}</a></li>
+    @else
+    <li class="text"><a href="/chat/{{$val->rid}}">{{$val->name}}</a></li>
+    @endif
     @endforeach
-    <!--
-    <li>hogehoge</li>
-    <li>hogehoge</li>
-    <li>hogehoge</li>
-    <li>hogehoge</li>
-    <li>hogehoge</li>
-    <li>hogehoge</li>
-    <li>hogehoge</li>
-    <li>{{$view_message}}</li>
-    <li><middleware>google.com</middleware>へのリンク</li>-->
 @endsection
 @section('content')
-    @if (isset($data['selectRoom']->name))
+    @if (isset($data['selectRoom']->rid))
         @each ('components.talk', $data['talk'], 'val')
         @component('components.message_form')
             @slot('rid', $data['selectRoom']->rid)

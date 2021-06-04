@@ -1,36 +1,114 @@
-* {
-    margin: 0;
-    padding: 0; /* 全てのプロパティの余白とパディングをリセットしています。*/
+ html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100% /* 2 */;
+ }
+ body {
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    color: #3d4245;
+    padding-bottom: 50px;
  }
  #wrapper {
-    width: 70%;
-    min-height:120%;
-    margin: 0 auto;/*ページ幅 70％ でセンタリングしています。*/
+    position: relative;
+    display: flex;
+    flex-direction: column;
  }
  #main {
-    width: 100%;/*ページ幅 70％をメニューとコンテンツ幅にしています。同上*/
-    overflow: hidden;/* 親ボックスでフロート解除します。*/
+    display: flex;
+    flex: 1 0 auto;
  }
  #menu {
-     float: left;
-     position: fixed;
-     min-height:120%;
-     width: 150px;  /* floatの width 指定は必須です。*/
-     padding-top: 60px;
-     border-right: 0.1em solid gray;
+    display: block;
+    width: 240px;
+    flex: 1 0 auto;
+    margin-top: 12px;
  }
+ #menu .sidebar-index {
+    flex: 1 0 auto;
+    margin-top: 12px;
+ }
+ #menu .sidebar-index .roomList {
+    border-top: 1px solid #dde5e8;
+    border-bottom: 1px solid #dde5e8;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+ }
+ #menu .text {
+    font-size: 18px;
+    position: relative;
+ }
+ #menu .text.userInfo {
+    font-size: 10px;
+    display: block;
+    position: relative;
+    color: #3d4245;
+    line-height: 1.25;
+    padding: 16px 8px 16px 30px;
+    border-radius: 0 4px 4px 0;
+    white-space: nowrap;
+    -webkit-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+ }
+ #menu .text.userInfo .name {
+    font-size: 18px;
+    font-weight: 400;
+ }
+ #menu .btnArea {
+    display: block;
+    position: relative;
+    color: #3d4245;
+    line-height: 1.25;
+    padding-left: 30px;
+    border-radius: 0 4px 4px 0;
+    white-space: nowrap;
+    -webkit-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+ }
+ #menu .btnArea .lineBtn {
+    border: 1px solid #3392ff;
+    color: #3392ff;
+    background-color: #ffffff;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    font-size: 0.5rem;
+    line-height: 30px;
+ }
+
+ #menu .text>a {
+    border-bottom: none!important;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    color: #3d4245;
+    line-height: 1.25;
+    padding: 16px 8px 16px 56px;
+    border-radius: 0 4px 4px 0;
+    white-space: nowrap;
+    -webkit-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+ }
+ #menu li a:hover {
+     background-color:rgba(56,72,88,.08);
+ }
+ #menu .text.selected>a {
+    box-shadow: inset 5px 0 0 #242527;
+    font-weight: 700;
+    background: rgba(56,72,88,.08);
+ }
+ 
  #contents {
-    margin-left: 170px; 
-    padding-top: 20px;
-    min-height: 100%;
- }
- #footer {
-    clear: both;   /* IE6 以前の float 解除対応です。 */
+    display: block;
+    margin: 0 32px 32px;
+    padding-top: 24px;
     width: 100%;
-    height: 50px;
- }
- #menu ul {
-    list-style: none;
+    min-width: 0;
  }
  #contents .talk {
      padding: 10 0 10 0;
@@ -40,8 +118,9 @@
      margin-left: 100px;
      margin-right: 100px;
      padding: 1.2em;
-     border: 3px solid #c1deff;
-     background-color: #c1deff;
+     background: -webkit-gradient(linear, left top, left bottom, from(#c1deff), to(#ebedee));
+     background: -webkit-linear-gradient(top, #c1deff 0%, #acd3ff 100%);
+     background: linear-gradient(to bottom, #c1deff 0%, #acd3ff 100%); 
      border-radius: 5px;
  }
  #contents .talk .talk-other {
@@ -50,8 +129,9 @@
      margin-left: 100px;
      margin-right: 100px;
      padding: 1.2em;
-     border: 3px solid #eee;
-     background-color: #eee;
+     background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ebedee));
+     background: -webkit-linear-gradient(top, #eee 0%, #dbdbdb 100%);
+     background: linear-gradient(to bottom, #eee 0%, #dbdbdb 100%); 
      border-radius: 5px;
  }
  #contents .talk .name {
@@ -66,10 +146,12 @@
      text-align: right;
  }
  #contents #form  {
-     position: fixed;
-     bottom: 0;
-     padding: 10 0 10 0;
-     display: flex;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding: 10 0 10 100;
+    display: flex;
+    background-color: #ffffff;
  }
  #contents #form .message {
      padding: 10px;
