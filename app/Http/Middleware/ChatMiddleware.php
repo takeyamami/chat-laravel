@@ -33,7 +33,7 @@ class ChatMiddleware
         $users = DB::select('SELECT * FROM UserData WHERE loginid=:id AND loginpw=:pw', $param);
 
         // 該当するユーザーが存在しない
-        if(isset($users[0])){
+        if(!isset($users[0])){
             return redirect('/login');
         }
 
