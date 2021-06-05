@@ -113,10 +113,11 @@
  }
  #contents .talk {
      padding: 10 0 10 0;
+     max-width: 1000px;
  }
- #contents .talk .talk-me {
+ #contents .talk-me .message {
      position: relative;
-     margin-left: 100px;
+     margin-left: 300px;
      margin-right: 100px;
      padding: 1.2em;
      background: -webkit-gradient(linear, left top, left bottom, from(#c1deff), to(#ebedee));
@@ -124,31 +125,42 @@
      background: linear-gradient(to bottom, #c1deff 0%, #acd3ff 100%); 
      border-radius: 5px;
  }
- #contents .talk .talk-other {
+ #contents .talk-me .name {
+     margin-left: 300px;
+     font-size: 13px;
+     text-align: left;
+ }
+ #contents .talk-me .time {
+     margin-left: 300px;
+     margin-right: 100px;
+     font-size: 13px;
+     text-align: right;
+ }
+ #contents .talk-other .message {
      color: #444;
      position: relative;
      margin-left: 100px;
-     margin-right: 100px;
+     margin-right: 300px;
      padding: 1.2em;
      background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ebedee));
      background: -webkit-linear-gradient(top, #eee 0%, #dbdbdb 100%);
      background: linear-gradient(to bottom, #eee 0%, #dbdbdb 100%); 
      border-radius: 5px;
  }
- #contents .talk .name {
+ #contents .talk-other .name {
      margin-left: 100px;
      font-size: 13px;
      text-align: left;
  }
- #contents .talk .time {
+ #contents .talk-other .time {
      margin-left: 100px;
-     margin-right: 100px;
+     margin-right: 300px;
      font-size: 13px;
      text-align: right;
  }
  #contents #form  {
     position: fixed;
-    width: 100%;
+    max-width: 100%;
     bottom: 0;
     padding: 10 0 10 100;
     display: flex;
