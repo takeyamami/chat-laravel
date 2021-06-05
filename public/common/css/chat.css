@@ -160,7 +160,7 @@
  }
  #contents #form  {
     position: fixed;
-    max-width: 100%;
+    width: 100%;
     bottom: 0;
     padding: 10 0 10 100;
     display: flex;
@@ -168,17 +168,18 @@
  }
  #contents #form .message {
      padding: 10px;
+     width: 50%;
      line-height: 1.2em;
  }
  #contents #form .submitBtn {
     color: #ffffff;
     background-color: #3392ff;
-     width: 100px; 
-     height: 40px;
-     margin-top: 7px;
-     margin-left: 15px;
-     padding-left: 10px;
-     text-align: center;
+    width: 100px; 
+    height: 40px;
+    margin-top: 7px;
+    margin-left: 15px;
+    padding-left: 10px;
+    text-align: center;
  }
  #contents #form .submitBtn:before {
     color: #ffffff;
