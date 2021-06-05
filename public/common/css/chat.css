@@ -7,7 +7,7 @@
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
     font-size: 14px;
     color: #3d4245;
-    padding-bottom: 50px;
+    padding-bottom: 100px;
  }
  #wrapper {
     position: relative;
@@ -164,7 +164,7 @@
     bottom: 0;
     padding: 10 0 10 100;
     display: flex;
-    background-color: #ffffff;
+    background-color: rgba(158, 158, 158, 0.5);
  }
  #contents #form .message {
      padding: 10px;
