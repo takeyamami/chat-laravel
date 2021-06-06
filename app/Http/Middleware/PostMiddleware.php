@@ -24,6 +24,10 @@ class PostMiddleware
             return redirect('/login');
         }
 
+        if ($request->message == "") {
+            return $next($request); // メッセージがなければ、何もしない
+        }
+
         $param = [
             'id' => $loginid,
             'pw' => $loginpw,
