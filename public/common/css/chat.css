@@ -80,7 +80,6 @@
     font-size: 0.5rem;
     line-height: 30px;
  }
-
  #menu .text>a {
     border-bottom: none!important;
     text-decoration: none;
@@ -95,13 +94,29 @@
     text-overflow: ellipsis;
     overflow: hidden;
  }
- #menu li a:hover {
+ #menu .text a:hover {
      background-color:rgba(56,72,88,.08);
  }
  #menu .text.selected>a {
     box-shadow: inset 5px 0 0 #242527;
     font-weight: 700;
     background: rgba(56,72,88,.08);
+ }
+ #menu .link {
+   font-size: 16px;
+   font-weight: 400;
+ }
+ #menu .link>a {
+   display: block;
+   position: relative;
+   color: #0bdaa6;
+   line-height: 1.25;
+   padding: 8px 8px 16px 30px;
+   border-radius: 0 4px 4px 0;
+   white-space: nowrap;
+   -webkit-text-overflow: ellipsis;
+   text-overflow: ellipsis;
+   overflow: hidden;
  }
  
  #contents {

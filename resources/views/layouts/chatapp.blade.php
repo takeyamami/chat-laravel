@@ -10,9 +10,9 @@
             <li>
                 <ul class="roomList">
                 @show
+                <li class="link"><a href="/room" class="link">+ ルーム追加</a></li>
                 </ul>
             </li>
-
         </ul>
         </div>
         <div id="contents">
