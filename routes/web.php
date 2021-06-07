@@ -19,3 +19,5 @@ Route::post('/chat/post', 'ChatListController@post')->middleware('post');
 Route::get('/login/', 'LoginController');
 Route::post('/login/action', 'LoginController@action')->middleware('login');
 Route::get('/logout/', 'LogoutController')->middleware('logout');
+Route::get('/room/', 'RoomController');
+Route::get('/room/action', 'RoomController@action');

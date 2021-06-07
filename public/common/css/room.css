@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0; /* 全てのプロパティの余白とパディングをリセットしています。*/
+ }
+ #contents {
+    text-align: center; 
+    padding-top: 100px;
+ }
+ #contents h1 {
+    font-size: 30px;
+ }
+ #contents .errorTitle{
+   padding-top: 15px;
+ }
+ #contents .data {
+    width: 400px; 
+    padding-top: 15px;
+    margin-right: auto;
+    margin-left: auto;
+ }
+ #contents .item {
+    padding-bottom: 10px;
+ }
+ #contents .btnArea {
+    padding-top: 15px;
+ }
+ .item .formControl {
+     padding: 12px 18px 11px 16px;
+     display: block;
+     width: 100%;
+     height: calc(1.5rem + 25px);
+     padding: .375rem .75rem;
+     font-size: 1rem;
+     font-weight: 300;
+     line-height: 1.5;
+     color: #495057;
+     background-color: #fff;
+     background-clip: padding-box;
+     border: 1px solid #202020;
+     border-radius: .25rem;
+     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+ }
+ .item .error {
+   background-color: #ffbcd2;
+ }
+ .item .errorCopy {
+   text-align: left;
+   font-size: 0.8rem;
+   color: #ff2970;
+ }
+#contents .btnArea .submitBtn {
+    width: 200px; 
+    color: #ffffff;
+    background-color: #3392ff;
+}
