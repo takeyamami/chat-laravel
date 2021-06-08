@@ -27,7 +27,6 @@ class ChatMiddleware
 
         $user = DB::table('UserData')->where('loginid', $loginid)->where('loginpw', $loginpw)->first();
 
-
         // 該当するユーザーが存在しない
         if(!isset($user)){
             return redirect('/login');
@@ -37,7 +36,7 @@ class ChatMiddleware
         $selectRoom = [];
         $talk = [];
         if (isset($request->rid)) {
-            $selectRoom = DB::select('SELECT * FROM RoomData WHERE rid=:rid' , ['rid' => $request->rid])[0];
+            $selectRoom = DB::table('RoomData')->where('rid', $request->rid)->first();
             $talk = DB::select('SELECT t.*, (CASE WHEN t.uid = :uid THEN 1 ELSE 2 END) type, u.name username FROM TalkData t INNER JOIN UserData u ON t.uid = u.uid WHERE rid=:rid' , ['rid' => $request->rid, 'uid' => $user->uid]);
         }
         $data = ['user'=> $user, 'talk' => $talk, 'rooms' => $rooms, 'selectRoom' => $selectRoom];
