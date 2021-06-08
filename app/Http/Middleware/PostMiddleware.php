@@ -33,11 +33,11 @@ class PostMiddleware
             'pw' => $loginpw,
         ];
 
-        $users = DB::select('SELECT * FROM UserData WHERE loginid=:id AND loginpw=:pw', $param);
+        $user = DB::table('UserData')->where('loginid', $loginid)->where('loginpw', $loginpw)->first();
 
         $talkParam = [
             "rid" => $request->rid, 
-            "uid" => $users[0]->uid, 
+            "uid" => $user->uid, 
             "message" => $request->message, 
             "regist_dt" => date("Y/m/d H:i:s"),
         ];
