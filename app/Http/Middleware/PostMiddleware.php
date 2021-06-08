@@ -42,7 +42,7 @@ class PostMiddleware
             "regist_dt" => date("Y/m/d H:i:s"),
         ];
         // トークデータを登録
-        DB::insert("INSERT INTO TalkData (rid, uid, message, regist_dt) VALUES (:rid, :uid, :message, :regist_dt)", $talkParam);
+        DB::table("TalkData")->insert($talkParam);
 
         return $next($request);
     }
