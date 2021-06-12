@@ -5,17 +5,19 @@ class Room
 {
     protected RoomID $rid;
     protected RoomName $name;
-    protected UserName $name;
+    protected array $users;
 
     /**
      * 
      */
     public function __constract(
         RoomID $rid,
-        RoomName $lonameginpw,
+        RoomName $name,
+        array $users
     ) {
         $this->rid = $rid;
         $this->name = $name;
+        $this->users = $users;
     }
 }
 
