@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Talk;
 
 class PostMiddleware
 {
@@ -33,16 +34,21 @@ class PostMiddleware
             'pw' => $loginpw,
         ];
 
-        $user = DB::table('UserData')->where('loginid', $loginid)->where('loginpw', $loginpw)->first();
+        $user = DB::table('users')->where('loginid', $loginid)->where('loginpw', $loginpw)->first();
 
-        $talkParam = [
-            "rid" => $request->rid, 
-            "uid" => $user->uid, 
-            "message" => $request->message, 
-            "regist_dt" => date("Y/m/d H:i:s"),
-        ];
+        // $talkParam = [
+        //     "rid" => $request->rid, 
+        //     "uid" => $user->uid, 
+        //     "message" => $request->message, 
+        //     "regist_dt" => date("Y/m/d H:i:s"),
+        // ];
         // トークデータを登録
-        DB::table("TalkData")->insert($talkParam);
+        // DB::table("talks")->insert($talkParam);
+        $talk = new Talk;
+        $talk->rid = $request->rid;
+        $talk->uid = $user->uid;
+        $talk->message = $request->message;
+        $talk->save();
 
         return $next($request);
     }
