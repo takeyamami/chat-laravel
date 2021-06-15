@@ -47,7 +47,7 @@ class LoginController extends Controller
             'pw' => hash('sha256', $request->password),
         ];
 
-        $items = DB::select('SELECT * FROM UserData WHERE loginid=:id AND loginpw=:pw', $param);
+        $items = DB::select('SELECT * FROM users WHERE loginid=:id AND loginpw=:pw', $param);
 
         if(count($items) == 0) {
             return view('login.index', ['msg' => '未登録のユーザーです。']);

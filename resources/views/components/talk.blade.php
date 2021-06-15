@@ -8,5 +8,5 @@ $talkPosition = $val->type == 1 ? 'talk-me' : 'talk-other';
     <div class="message">
         <p>{!! nl2br(e($val->message)) !!}</p>
     </div>
-<div class="time">{{$val->regist_dt}}</div>
+<div class="time">{{$val->created_at}}</div>
 </div>
