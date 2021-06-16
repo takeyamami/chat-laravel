@@ -45,19 +45,19 @@ class Kernel extends HttpKernel
         ],
 
         'chat' => [
-            \App\Http\Middleware\ChatMiddleware::class,
+            \MyApp\Http\Middleware\ChatMiddleware::class,
         ],
 
         'login' => [
-            \App\Http\Middleware\LoginMiddleware::class,
+            \MyApp\Http\Middleware\LoginMiddleware::class,
         ],
 
         'post' => [
-            \App\Http\Middleware\PostMiddleware::class,
+            \MyApp\Http\Middleware\PostMiddleware::class,
         ],
 
         'logout' => [
-            \App\Http\Middleware\LogoutMiddleware::class,
+            \MyApp\Http\Middleware\LogoutMiddleware::class,
         ],
     ];
 
