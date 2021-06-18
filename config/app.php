@@ -180,7 +180,8 @@ return [
          */
         MyApp\Providers\ChatServiceProvider::class,
         MyApp\Providers\LoginServiceProvider::class,
-
+        MyApp\Providers\RepositoryServiceProvider::class,
+        MyApp\Providers\TalkServiceProvider::class,
     ],
 
     /*

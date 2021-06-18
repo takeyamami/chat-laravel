@@ -5,10 +5,17 @@ namespace MyApp\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use MyApp\Models\Talk;
+use MyApp\application\Talks\TalkApplicationService;
 
 class PostMiddleware
 {
+    protected TalkApplicationService $_talkApplicationService;
+
+    public function __construct(TalkApplicationService $talkApplicationService)
+    {
+        $this->_talkApplicationService = $talkApplicationService;
+    }
+
     /**
      * Handle an incoming request.
      *
@@ -36,11 +43,7 @@ class PostMiddleware
 
         $user = DB::table('users')->where('loginid', $loginid)->where('loginpw', $loginpw)->first();
 
-        $talk = new Talk;
-        $talk->rid = $request->rid;
-        $talk->uid = $user->uid;
-        $talk->message = $request->message;
-        $talk->save();
+        $this->_talkApplicationService->register($request->rid, $user->uid, $request->message);
 
         return $next($request);
     }
