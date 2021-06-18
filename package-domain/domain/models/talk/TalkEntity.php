@@ -4,7 +4,7 @@ namespace MyApp\domain\models\talk;
 use Domain\domain\models\room\RoomID;
 use Domain\domain\models\user\UserID;
 
-class Talk 
+class TalkEntity 
 {
     protected TalkID $tid;
     protected RoomID $rid;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace MyApp\domain\models\talk;
 
-use Domain\Shared\Domain\DomainError;
+use MyApp\Shared\Domain\DomainError;
 
 final class TalkMessageError extends DomainError
 {

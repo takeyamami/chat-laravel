@@ -6,5 +6,5 @@ namespace MyApp\domain\models\talk;
 
 interface ITalkRepository
 {
-    public function save(Talk $talk): void;
+    public function save(TalkEntity $talkEntity): void;
 }
