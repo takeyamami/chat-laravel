@@ -1,8 +1,8 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Models;
 
-use App\Models\User;
+use MyApp\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -23,11 +23,11 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
+            'uid' => 1,
+            'loginid' => hash('sha256', $this->faker->unique()->safeEmail()),
+            'loginpw' =>  hash('sha256', '123456'),
             'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
+            'uid' => 1,
         ];
     }
 
