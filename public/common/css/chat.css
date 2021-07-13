@@ -139,6 +139,7 @@
      background: -webkit-linear-gradient(top, #c1deff 0%, #acd3ff 100%);
      background: linear-gradient(to bottom, #c1deff 0%, #acd3ff 100%); 
      border-radius: 5px;
+     word-break: break-all;
  }
  #contents .talk-me .name {
      margin-left: 300px;
@@ -161,6 +162,7 @@
      background: -webkit-linear-gradient(top, #eee 0%, #dbdbdb 100%);
      background: linear-gradient(to bottom, #eee 0%, #dbdbdb 100%); 
      border-radius: 5px;
+     word-break: break-all;
  }
  #contents .talk-other .name {
      margin-left: 100px;
